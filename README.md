@@ -69,25 +69,20 @@ The extension detects several categories of sensitive data including:
 ## Installation
 
 1. Clone the repository
-<<<<<<< HEAD
-2. git clone https://github.com/Albin5jiji/sensitive-data-detector.git
-3. Open Chrome
 
-4. Go to
-chrome://extensions
-5. Enable **Developer Mode**
-=======
-   git clone https://github.com/YOUR-USERNAME/sensitive-data-detector.git
+git clone https://github.com/Albin5jiji/sensitive-data-detector.git
+
 2. Open Chrome
 
 3. Go to
-   chrome://extensions
-4. Enable **Developer Mode**
->>>>>>> 7a0854a (Added entropy-based secret detection and improved ML scoring)
 
-6. Click **Load Unpacked**
+chrome://extensions
 
-7. Select the project folder
+4. Enable Developer Mode
+
+5. Click "Load Unpacked"
+
+6. Select the project folder
 
 ---
 
