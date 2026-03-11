@@ -69,16 +69,16 @@ The extension detects several categories of sensitive data including:
 ## Installation
 
 1. Clone the repository
-git clone https://github.com/YOUR-USERNAME/sensitive-data-detector.git
-2. Open Chrome
+2. git clone https://github.com/Albin5jiji/sensitive-data-detector.git
+3. Open Chrome
 
-3. Go to
+4. Go to
 chrome://extensions
-4. Enable **Developer Mode**
+5. Enable **Developer Mode**
 
-5. Click **Load Unpacked**
+6. Click **Load Unpacked**
 
-6. Select the project folder
+7. Select the project folder
 
 ---
 
