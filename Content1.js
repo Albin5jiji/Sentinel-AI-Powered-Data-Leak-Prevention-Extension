@@ -17,22 +17,23 @@ const patterns = [
 // =====================
 // 2. Feature Extraction
 // =====================
-function extractFeatures(text) {
+function extractFeatures(text){
 
-  const length = text.length;
+  const length = text.length
 
-  const digits = (text.match(/\d/g) || []).length;
-  const letters = (text.match(/[a-zA-Z]/g) || []).length;
-  const spaces = (text.match(/\s/g) || []).length;
-  const special = (text.match(/[^a-zA-Z0-9]/g) || []).length;
+  const digits = (text.match(/\d/g) || []).length
+  const letters = (text.match(/[a-zA-Z]/g) || []).length
+  const spaces = (text.match(/\s/g) || []).length
+  const special = (text.match(/[^a-zA-Z0-9]/g) || []).length
 
   return {
-    digitRatio: digits / (length || 1),
-    letterRatio: letters / (length || 1),
-    spaceRatio: spaces / (length || 1),
-    specialRatio: special / (length || 1),
+    digitRatio: digits/(length||1),
+    letterRatio: letters/(length||1),
+    spaceRatio: spaces/(length||1),
+    specialRatio: special/(length||1),
+    entropy: entropy(text),
     length
-  };
+  }
 
 }
 
@@ -40,21 +41,40 @@ function extractFeatures(text) {
 // =====================
 // 3. ML-style scoring
 // =====================
-function mlScore(text) {
 
-  const f = extractFeatures(text);
+function entropy(str) {
 
-  let score = 0;
+  const map = {}
 
-  if (f.digitRatio > 0.7) score += 40;
-  if (f.specialRatio > 0.25) score += 20;
-  if (f.length > 20) score += 10;
+  for (const c of str) {
+    map[c] = (map[c] || 0) + 1
+  }
 
-  if (f.letterRatio > 0.6) score -= 25;
-  if (f.spaceRatio > 0.35) score -= 15;
+  let e = 0
 
-  return score;
+  for (const k in map) {
+    const p = map[k] / str.length
+    e -= p * Math.log2(p)
+  }
 
+  return e
+}
+
+function mlScore(text){
+
+  const f = extractFeatures(text)
+
+  let score = 0
+
+  if(f.digitRatio > 0.7) score += 35
+  if(f.specialRatio > 0.25) score += 20
+  if(f.entropy > 3.5) score += 30
+  if(f.length > 20) score += 10
+
+  if(f.letterRatio > 0.6) score -= 25
+  if(f.spaceRatio > 0.35) score -= 15
+
+  return score
 }
 
 

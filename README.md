@@ -9,7 +9,7 @@ It helps prevent accidental exposure of confidential data such as emails, phone 
 
 Sensitive information is often accidentally typed into forms, chat boxes, or websites where it should not be shared.
 
-This extension monitors user input fields and webpage content to identify potentially sensitive data using a combination of **pattern detection (regex)** and **feature-based ML-style scoring**.
+This extension monitors user input fields and webpage content to identify potentially sensitive data using a combination of **pattern detection (regex)** and **Hybrid detection engine using regex matching, entropy analysis, and machine-learning feature scoring.**.
 
 When sensitive information is detected, the extension:
 
@@ -69,12 +69,21 @@ The extension detects several categories of sensitive data including:
 ## Installation
 
 1. Clone the repository
+<<<<<<< HEAD
 2. git clone https://github.com/Albin5jiji/sensitive-data-detector.git
 3. Open Chrome
 
 4. Go to
 chrome://extensions
 5. Enable **Developer Mode**
+=======
+   git clone https://github.com/YOUR-USERNAME/sensitive-data-detector.git
+2. Open Chrome
+
+3. Go to
+   chrome://extensions
+4. Enable **Developer Mode**
+>>>>>>> 7a0854a (Added entropy-based secret detection and improved ML scoring)
 
 6. Click **Load Unpacked**
 
