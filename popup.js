@@ -1,6 +1,17 @@
-// Currently no toggle button — just info
-// You can expand this file if you want to show live stats later
-
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Popup loaded. Extension is active.");
+
+  chrome.storage.local.get(["stats"], (data) => {
+
+    const s = data.stats || { detections: 0, blocked: 0 };
+
+    const status = document.querySelector(".status");
+
+    if (status) {
+      status.innerHTML =
+        "Detections: " + s.detections +
+        "<br>Blocked: " + s.blocked;
+    }
+
+  });
+
 });
