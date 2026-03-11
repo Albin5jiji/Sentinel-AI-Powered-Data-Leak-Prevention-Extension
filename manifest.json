@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Sensitive Data Detector",
+  "version": "1.0",
+  "description": "Detects sensitive data in text inputs in real time",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["Content1.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Sensitive Data Detector"
+  }
+}
